@@ -1,32 +1,43 @@
-document.getElementById("currency-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    const amount = document.getElementById("amount").value;
-    const fromCurrency = document.getElementById("from-currency").value;
-    const toCurrency = document.getElementById("to-currency").value;
+function convertCurrency() {
+  let amount = document.getElementById("amount").value;
+  let fromCurrency = document.getElementById("fromCurrency").value;
+  let toCurrency = document.getElementById("toCurrency").value;
   
-    if (amount && fromCurrency && toCurrency) {
-      convertCurrency(amount, fromCurrency, toCurrency);
-    }
-  });
-  
-  async function convertCurrency(amount, fromCurrency, toCurrency) {
-    const url = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
-    
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      
-      if (data.rates && data.rates[toCurrency]) {
-        const rate = data.rates[toCurrency];
-        const convertedAmount = (amount * rate).toFixed(2);
-        
-        document.getElementById("converted-amount").textContent = `${convertedAmount} ${toCurrency}`;
-      } else {
-        alert("Invalid currency selected.");
-      }
-    } catch (error) {
-      console.error("Error fetching exchange rate data:", error);
-      alert("Something went wrong. Please try again.");
-    }
+  if (amount === "") {
+    alert("Please enter an amount to convert.");
+    return;
   }
+
+  // Here we would use an API to get real-time exchange rates.
+  // For simplicity, let's use static exchange rates.
+  const exchangeRates = {
+    USD: {
+      EUR: 0.93,
+      INR: 82.12,
+      GBP: 0.82
+    },
+    EUR: {
+      USD: 1.08,
+      INR: 88.22,
+      GBP: 0.88
+    },
+    INR: {
+      USD: 0.012,
+      EUR: 0.011,
+      GBP: 0.010
+    },
+    GBP: {
+      USD: 1.22,
+      EUR: 1.14,
+      INR: 100.5
+    }
+  };
+
+  if (fromCurrency === toCurrency) {
+    document.getElementById("convertedAmount").textContent = amount;
+    return;
+  }
+
+  let convertedAmount = amount * exchangeRates[fromCurrency][toCurrency];
+  document.getElementById("convertedAmount").textContent = convertedAmount.toFixed(2);
+}

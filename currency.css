@@ -1,55 +1,126 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Heading Styling */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Input and Select Fields Styling */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Result Display Styling */
+.result {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+/* Responsive Styling */
+
+/* For smaller screens (mobile devices) */
+@media screen and (max-width: 600px) {
   .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    padding: 15px;
+    margin: 20px;
   }
-  
+
   h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 20px;
   }
-  
-  label {
-    display: block;
-    margin: 10px 0;
+
+  input, select {
+    padding: 8px;
+    font-size: 14px;
   }
-  
-  input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
+
   button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
   }
-  
-  button:hover {
-    background-color: #45a049;
+
+  h2 {
+    font-size: 20px;
   }
-  
-  .result {
-    margin-top: 20px;
+}
+
+/* For larger screens (tablets and desktops) */
+@media screen and (min-width: 601px) {
+  .container {
+    max-width: 500px;
   }
-  
-  #converted-amount {
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  input, select {
     font-size: 18px;
-    font-weight: bold;
   }
+
+  button {
+    font-size: 18px;
+    padding: 14px;
+  }
+}
